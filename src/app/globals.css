@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------------ */
+/*  Casa do Hip Hop de Brazlândia — design tokens                      */
+/*  Brand: near-black canvas, gold/yellow energy, urban graffiti feel  */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Surfaces */
+  --color-ink: #0a0a0a;
+  --color-ink-2: #111111;
+  --color-surface: #161616;
+  --color-surface-2: #1d1d1d;
+  --color-line: #2a2a2a;
+
+  /* Brand */
+  --color-gold: #ffd200;
+  --color-gold-2: #ffb800;
+  --color-flame: #ff6a00;
+  --color-cream: #f5f1e6;
+
+  /* Text */
+  --color-paper: #ffffff;
+  --color-muted: #a3a3a3;
+
+  /* Fonts (wired to next/font variables in layout.tsx) */
+  --font-display: var(--font-anton), "Arial Narrow", system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-marker: var(--font-marker), "Comic Sans MS", cursive;
+
+  /* Motion */
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-marquee-rev: marquee-rev 38s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* offset for sticky navbar */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 9999px;
+  border: 2px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+
+/* Outlined / stroked display text */
+@utility text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-gold);
+  paint-order: stroke fill;
+}
+@utility text-stroke-white {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.55);
+  paint-order: stroke fill;
+}
+
+/* Film-grain / spray texture overlay */
+@utility bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+/* Subtle dotted halftone */
+@utility bg-dots {
+  background-image: radial-gradient(rgba(255, 210, 0, 0.16) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* Gold underline swipe used on links */
+@utility link-swipe {
+  background-image: linear-gradient(var(--color-gold), var(--color-gold));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
 }
