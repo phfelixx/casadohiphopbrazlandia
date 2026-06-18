@@ -1,3 +1,4 @@
+import { Asterisk } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SCHEDULE } from "@/lib/data";
@@ -65,8 +66,9 @@ export function Cronograma() {
                       aria-hidden
                       className="flex flex-1 items-center justify-center rounded-xl border border-dashed border-line/70 p-3 text-center"
                     >
-                      <span className="font-marker text-sm text-muted">
-                        bora marcar ✶
+                      <span className="inline-flex items-center gap-1 font-marker text-sm text-muted">
+                        bora marcar
+                        <Asterisk className="h-4 w-4" aria-hidden />
                       </span>
                     </li>
                   )}
@@ -78,9 +80,7 @@ export function Cronograma() {
 
         {/* Footnote */}
         <p className="mt-8 flex items-center justify-center gap-2 text-center text-xs text-muted sm:text-sm">
-          <span aria-hidden className="text-gold">
-            ✶
-          </span>
+          <Asterisk className="h-4 w-4 shrink-0 text-gold" aria-hidden />
           Horários sujeitos a alteração — confirme na sua inscrição.
         </p>
       </Container>

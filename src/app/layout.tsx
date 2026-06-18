@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Inter, Permanent_Marker } from "next/font/google";
+import { Anton, Bricolage_Grotesque, Permanent_Marker } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 
@@ -10,8 +10,8 @@ const anton = Anton({
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
 });
@@ -77,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${anton.variable} ${inter.variable} ${marker.variable} h-full antialiased`}
+      className={`${anton.variable} ${bricolage.variable} ${marker.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ink text-cream">{children}</body>
     </html>

@@ -1,3 +1,4 @@
+import { ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -29,12 +30,12 @@ export function Oficinas() {
           {WORKSHOPS.map((w) => (
             <li key={w.slug}>
               <article className="group flex h-full flex-col gap-4 rounded-2xl border border-line bg-surface p-6 shadow-[6px_6px_0_0_#000] transition-all duration-200 ease-out hover:-translate-y-1 hover:border-gold">
-                {/* Emoji badge */}
+                {/* Icon badge */}
                 <span
                   aria-hidden
-                  className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-black bg-gold text-3xl shadow-[4px_4px_0_0_#000] transition-transform duration-200 group-hover:-rotate-6"
+                  className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-black bg-gold text-black shadow-[4px_4px_0_0_#000] transition-transform duration-200 group-hover:-rotate-6"
                 >
-                  {w.emoji}
+                  <w.icon className="h-7 w-7" strokeWidth={2.25} />
                 </span>
 
                 {/* Tagline + name */}
@@ -50,19 +51,7 @@ export function Oficinas() {
 
                 {/* Schedule footer */}
                 <div className="mt-auto flex items-center gap-2 border-t border-line pt-4 text-sm font-semibold text-cream">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-4 w-4 shrink-0 text-gold"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 2" />
-                  </svg>
+                  <Clock className="h-4 w-4 shrink-0 text-gold" aria-hidden />
                   <span>{w.schedule}</span>
                 </div>
               </article>
@@ -76,7 +65,8 @@ export function Oficinas() {
             Todas as oficinas são 100% gratuitas e com certificado.
           </p>
           <Button href={SITE.links.inscricao} external variant="solid" size="lg">
-            Quero me inscrever →
+            Quero me inscrever
+            <ArrowRight className="h-5 w-5" aria-hidden />
           </Button>
         </div>
       </Container>

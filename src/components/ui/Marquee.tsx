@@ -1,3 +1,4 @@
+import { Asterisk } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 export function Marquee({
@@ -31,9 +32,7 @@ export function Marquee({
             <span className="font-display text-2xl uppercase tracking-tight text-black sm:text-3xl">
               {word}
             </span>
-            <span className="text-xl text-black/70" aria-hidden>
-              ✶
-            </span>
+            <Asterisk className="h-5 w-5 text-black/70" aria-hidden />
           </li>
         ))}
       </ul>

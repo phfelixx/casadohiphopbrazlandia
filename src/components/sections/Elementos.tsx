@@ -42,9 +42,9 @@ export function Elementos() {
 
                     <div
                       aria-hidden
-                      className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl border-2 border-black bg-paper text-5xl shadow-[4px_4px_0_0_#000] sm:h-24 sm:w-24 sm:text-6xl"
+                      className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl border-2 border-black bg-paper text-black shadow-[4px_4px_0_0_#000] sm:h-24 sm:w-24"
                     >
-                      {el.emoji}
+                      <el.icon className="h-10 w-10 sm:h-12 sm:w-12" strokeWidth={2.25} />
                     </div>
 
                     <div className="relative flex flex-col gap-2">
@@ -80,9 +80,9 @@ export function Elementos() {
 
                   <div
                     aria-hidden
-                    className="grid h-16 w-16 shrink-0 place-items-center rounded-xl border border-line bg-ink text-4xl sm:text-5xl"
+                    className="grid h-16 w-16 shrink-0 place-items-center rounded-xl border border-line bg-ink text-gold"
                   >
-                    {el.emoji}
+                    <el.icon className="h-8 w-8 sm:h-9 sm:w-9" strokeWidth={2.25} />
                   </div>
 
                   <h3 className="font-display text-3xl uppercase leading-none text-paper sm:text-4xl">

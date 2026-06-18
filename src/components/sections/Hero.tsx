@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { STATS } from "@/lib/data";
@@ -50,7 +51,8 @@ export function Hero() {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button href={SITE.links.inscricao} external size="lg">
-                Inscreva-se grátis →
+                Inscreva-se grátis
+                <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <Button href="#oficinas" variant="outline" size="lg">
                 Conheça as oficinas
@@ -71,7 +73,7 @@ export function Hero() {
               </p>
             </div>
             <div className="absolute bottom-2 right-10 w-52 rotate-3 rounded-2xl border-2 border-black bg-paper p-4 shadow-[8px_8px_0_0_#000]">
-              <p className="font-marker text-base text-black">apoio do MINC ✊</p>
+              <p className="font-marker text-base text-black">apoio do MINC</p>
               <p className="mt-1 text-xs font-semibold text-black/70">
                 Termo de Fomento nº 976084/2025
               </p>

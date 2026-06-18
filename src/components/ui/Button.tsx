@@ -42,7 +42,7 @@ export function Button({
       {...rest}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-full font-display uppercase tracking-wide",
-        "transition-all duration-150 ease-out will-change-transform",
+        "transition-all duration-150 ease-out",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
         VARIANTS[variant],
         SIZES[size],

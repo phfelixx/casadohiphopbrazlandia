@@ -18,10 +18,9 @@ export const SITE = {
     /* Instagram oficial */
     instagram: "https://www.instagram.com/casadohiphopbrazlandia",
 
-    /* FORMULÁRIO DE PRÉ-INSCRIÇÃO (Google Forms)
-       ⚠️ Cole aqui a URL COMPLETA do formulário (está na bio do Instagram).
-       Enquanto não for preenchida, os botões levam ao Instagram. */
-    inscricao: "https://www.instagram.com/casadohiphopbrazlandia",
+    /* Formulário de pré-inscrição (Google Forms) — link oficial da bio. */
+    inscricao:
+      "https://docs.google.com/forms/d/e/1FAIpQLScRGwD1IivcU2cHEb1xje-L7byIn1DL8m-n3SK4M3tJ66gZzA/viewform",
 
     /* Opcionais — preencha se desejar exibir */
     whatsapp: "",

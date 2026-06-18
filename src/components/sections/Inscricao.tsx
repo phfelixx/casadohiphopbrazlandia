@@ -1,3 +1,4 @@
+import { ArrowRight, TriangleAlert } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -68,7 +69,7 @@ export function Inscricao() {
             aria-hidden
             className="absolute -top-4 right-6 hidden -rotate-3 rounded-full border-2 border-black bg-paper px-4 py-1 font-display text-sm uppercase tracking-wide text-black shadow-[4px_4px_0_0_#000] sm:inline-block"
           >
-            100% gratuito ✊
+            100% gratuito
           </span>
 
           <div className="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
@@ -87,13 +88,11 @@ export function Inscricao() {
               </p>
 
               <p className="mt-5 inline-flex items-start gap-2 rounded-xl border-2 border-black bg-paper px-4 py-3 text-sm font-semibold text-black shadow-[4px_4px_0_0_#000]">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="mt-0.5 h-5 w-5 shrink-0 fill-current"
+                <TriangleAlert
+                  className="mt-0.5 h-5 w-5 shrink-0"
+                  strokeWidth={2.25}
                   aria-hidden
-                >
-                  <path d="M12 2 1 21h22L12 2Zm0 4.6L19.5 19h-15L12 6.6ZM11 10v4h2v-4h-2Zm0 6v2h2v-2h-2Z" />
-                </svg>
+                />
                 <span>
                   A inscrição online não garante a vaga sem a confirmação
                   presencial.
@@ -109,7 +108,8 @@ export function Inscricao() {
                 size="lg"
                 className="w-full justify-center lg:w-auto"
               >
-                Fazer pré-inscrição →
+                Fazer pré-inscrição
+                <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
               <p className="text-center text-xs font-semibold uppercase tracking-wide text-black/60 lg:text-right">
                 Leve um documento · vaga confirmada na sede

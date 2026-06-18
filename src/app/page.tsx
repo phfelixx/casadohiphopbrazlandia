@@ -15,6 +15,12 @@ export default function Home() {
   return (
     <>
       <JsonLd />
+      <a
+        href="#top"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-60 focus:rounded-full focus:bg-gold focus:px-5 focus:py-2 focus:font-display focus:uppercase focus:text-black"
+      >
+        Pular para o conteúdo
+      </a>
       <Navbar />
       <main className="flex-1">
         <Hero />

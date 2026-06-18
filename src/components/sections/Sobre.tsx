@@ -1,3 +1,4 @@
+import { ArrowRight, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -83,16 +84,15 @@ export function Sobre() {
             {/* MINC sticker */}
             <div className="w-fit max-w-md -rotate-1 rounded-xl border-2 border-gold bg-surface px-5 py-4 shadow-[6px_6px_0_0_rgba(255,210,0,0.22)]">
               <p className="flex items-start gap-2 text-sm leading-relaxed text-cream/85">
-                <span aria-hidden className="text-base">
-                  ✊
-                </span>
+                <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
                 <span>{SITE.support}</span>
               </p>
             </div>
 
             <div className="pt-1">
               <Button href="#oficinas" variant="outline" size="lg">
-                Ver as oficinas →
+                Ver as oficinas
+                <ArrowRight className="h-5 w-5" aria-hidden />
               </Button>
             </div>
           </div>

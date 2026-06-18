@@ -9,6 +9,8 @@ export function JsonLd() {
     alternateName: SITE.shortName,
     url: SITE.url,
     slogan: SITE.tagline,
+    logo: `${SITE.url}/icon.svg`,
+    image: `${SITE.url}/opengraph-image`,
     description:
       "ONG cultural em Brazlândia/DF que oferece oficinas gratuitas de cultura Hip Hop: Graffiti, MC, Break, DJ, Capoeira, Teatro, Ballet e Artesanato.",
     sameAs: [SITE.links.instagram],
@@ -19,6 +21,7 @@ export function JsonLd() {
       addressRegion: "DF",
       addressCountry: "BR",
     },
+    hasMap: SITE.links.maps,
     areaServed: "Brazlândia, Distrito Federal, Brasil",
     knowsAbout: [
       "Hip Hop",

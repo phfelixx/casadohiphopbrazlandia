@@ -3,10 +3,24 @@
 /*  Baseado nos materiais oficiais da Casa do Hip Hop de Brazlândia.    */
 /* =================================================================== */
 
+import {
+  SprayCan,
+  MicVocal,
+  PersonStanding,
+  Disc3,
+  Drum,
+  Drama,
+  Feather,
+  Scissors,
+  Headphones,
+  BookOpen,
+  type LucideIcon,
+} from "lucide-react";
+
 export type Workshop = {
   slug: string;
   name: string;
-  emoji: string;
+  icon: LucideIcon;
   tagline: string;
   description: string;
   schedule: string;
@@ -17,16 +31,16 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "graffiti",
     name: "Graffiti",
-    emoji: "🎨",
+    icon: SprayCan,
     tagline: "Arte urbana",
     description:
-      "Spray, traço e letra. A arte que dá cor à cidade e voz à periferia — do bisic ao mural autoral.",
+      "Spray, traço e letra. A arte que dá cor à cidade e voz à periferia — do tag ao mural autoral.",
     schedule: "Quinta · 9h e 14h",
   },
   {
     slug: "mc",
     name: "MC / Rap",
-    emoji: "🎤",
+    icon: MicVocal,
     tagline: "A voz das ruas",
     description:
       "Escrita de rimas, flow, métrica e presença de palco. Transforme sua história em música nos encontros do Papo de MC.",
@@ -35,7 +49,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "break",
     name: "Break",
-    emoji: "🤸",
+    icon: PersonStanding,
     tagline: "B.boys & B.girls",
     description:
       "Toprock, footwork, freezes e power moves. A dança que nasceu nas ruas e move corpo e mente.",
@@ -44,7 +58,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "dj",
     name: "DJ",
-    emoji: "🎧",
+    icon: Disc3,
     tagline: "A batida",
     description:
       "Beatmatching, scratch e a arte de comandar a pista. O coração sonoro da cultura Hip Hop.",
@@ -53,7 +67,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "capoeira",
     name: "Capoeira",
-    emoji: "🥷",
+    icon: Drum,
     tagline: "Ginga e raiz",
     description:
       "Movimento, música e ancestralidade. Força e cultura brasileira na roda, com o grupo G'balá.",
@@ -62,7 +76,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "teatro",
     name: "Teatro",
-    emoji: "🎭",
+    icon: Drama,
     tagline: "Arte contemporânea",
     description:
       "Expressão corporal, voz e cena. O palco como espaço de criação, escuta e transformação.",
@@ -71,7 +85,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "ballet",
     name: "Ballet",
-    emoji: "🩰",
+    icon: Feather,
     tagline: "Técnica e dança",
     description:
       "Disciplina, postura e movimento. A dança clássica como base para todas as expressões corporais.",
@@ -80,7 +94,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     slug: "artesanato",
     name: "Artesanato",
-    emoji: "🧵",
+    icon: Scissors,
     tagline: "Mãos que criam",
     description:
       "Criatividade aplicada às mãos: reciclagem, costura e arte manual que geram renda e autoestima.",
@@ -130,38 +144,43 @@ export const SCHEDULE: ScheduleDay[] = [
 ];
 
 /* Os 5 elementos da cultura Hip Hop */
-export type Element = { name: string; role: string; description: string; emoji: string };
+export type Element = {
+  name: string;
+  role: string;
+  description: string;
+  icon: LucideIcon;
+};
 
 export const ELEMENTS: Element[] = [
   {
     name: "MC",
     role: "A palavra",
     description: "O rap como crônica da realidade: rima, mensagem e atitude.",
-    emoji: "🎤",
+    icon: MicVocal,
   },
   {
     name: "DJ",
     role: "O som",
     description: "A batida que sustenta a cultura, do scratch ao beat.",
-    emoji: "🎧",
+    icon: Headphones,
   },
   {
     name: "Break",
     role: "O movimento",
     description: "A dança que transforma o corpo em expressão e resistência.",
-    emoji: "🤸",
+    icon: PersonStanding,
   },
   {
     name: "Graffiti",
     role: "A arte",
     description: "A cor que ocupa os muros e marca a identidade da quebrada.",
-    emoji: "🎨",
+    icon: SprayCan,
   },
   {
     name: "Conhecimento",
     role: "A consciência",
     description: "O 5º elemento: educação, história e protagonismo social.",
-    emoji: "✊",
+    icon: BookOpen,
   },
 ];
 
@@ -170,7 +189,7 @@ export const STATS: { value: string; label: string }[] = [
   { value: "8", label: "oficinas gratuitas" },
   { value: "100%", label: "gratuito, sempre" },
   { value: "3 meses", label: "de curso + certificado" },
-  { value: "+2 mil", label: "na nossa comunidade" },
+  { value: "+2 mil", label: "seguidores no Insta" },
 ];
 
 /* Passos da inscrição */

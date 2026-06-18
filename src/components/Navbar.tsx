@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/Button";
 import { NAV, SITE } from "@/lib/site";
@@ -25,17 +26,31 @@ export function Navbar() {
     };
   }, [open]);
 
+  const solid = scrolled || open;
+
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || open
-          ? "border-b border-line bg-ink/90 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        solid
+          ? "border-b border-line bg-ink/95 backdrop-blur-md"
+          : "border-b border-transparent",
       )}
     >
-      <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" aria-label="Início" className="shrink-0">
+      {/* Scrim: keeps the nav legible over bright sections while transparent */}
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 -z-10 bg-linear-to-b from-black/80 via-black/40 to-transparent transition-opacity duration-300",
+          solid ? "opacity-0" : "opacity-100",
+        )}
+      />
+
+      <nav
+        aria-label="Principal"
+        className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 sm:px-8"
+      >
+        <a href="#top" aria-label="Início — Casa do Hip Hop" className="shrink-0">
           <Logo />
         </a>
 
@@ -45,7 +60,7 @@ export function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="link-swipe py-1 text-sm font-semibold uppercase tracking-wide text-cream/80 hover:text-gold"
+                className="link-swipe py-1 text-sm font-semibold uppercase tracking-wide text-cream drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] hover:text-gold"
               >
                 {item.label}
               </a>
@@ -65,33 +80,21 @@ export function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
-          className="grid h-11 w-11 place-items-center rounded-full border-2 border-line text-cream lg:hidden"
+          aria-controls="menu-mobile"
+          className="grid h-11 w-11 place-items-center rounded-full border-2 border-line bg-ink/60 text-cream transition-colors hover:border-gold hover:text-gold lg:hidden"
         >
-          <span className="relative block h-4 w-5">
-            <span
-              className={cn(
-                "absolute left-0 top-0 h-0.5 w-5 bg-current transition-all",
-                open && "top-1.5 rotate-45",
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 top-1.5 h-0.5 w-5 bg-current transition-all",
-                open && "opacity-0",
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 top-3 h-0.5 w-5 bg-current transition-all",
-                open && "top-1.5 -rotate-45",
-              )}
-            />
-          </span>
+          {open ? (
+            <X className="h-5 w-5" aria-hidden />
+          ) : (
+            <Menu className="h-5 w-5" aria-hidden />
+          )}
         </button>
       </nav>
 
       {/* Mobile menu */}
       <div
+        id="menu-mobile"
+        inert={!open ? true : undefined}
         className={cn(
           "overflow-hidden border-t border-line bg-ink lg:hidden",
           open ? "max-h-[80vh]" : "max-h-0 border-t-0",
